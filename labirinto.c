@@ -1,6 +1,13 @@
 #include <stdio.h>
 
 main(){
+
+    /*
+        valores: 
+            0   ->  blocos livres
+            -1  ->  paredes (blocos onde o rato não passa)
+            1   ->  queijo   
+    */
     
     int mazeDimensions[2];
     int ratInitalLocation[2];
@@ -51,13 +58,17 @@ main(){
 
     system("clear");
 
-    //Printf the drawed maze 
-    printf("--------------------------------------O labirinto--------------------------------------\n\n");
+    // Printf the drawed maze 
+    printf("--------------------------------------O labirinto---------------------------------\n\n");
     
     for(i = 0 ; i < mazeDimensions[0] ; i++){
         
         for(j = 0 ; j < mazeDimensions[1] ; j++){
-            printf("%d \t" , maze[i][j]);
+            if(maze[i][j] == 0){
+                printf(" %d \t" , maze[i][j]);
+            }else if(maze[i][j] == -1){
+                printf("%d \t" , maze[i][j]);
+            }
         }
         
         printf("\n");
@@ -65,8 +76,5 @@ main(){
     }
 
     printf("\n");
-
-    
-
 
 }
